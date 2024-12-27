@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon',
@@ -8,5 +10,13 @@ import { Component } from '@angular/core';
   styleUrl: './pokemon.component.css'
 })
 export class PokemonComponent {
+  
+  constructor(private route: ActivatedRoute) { }
+
+ngOnInit(): void {
+  this.route.paramMap.subscribe(params => {
+    let id = params.get("id")!;
+  })
+}
 
 }

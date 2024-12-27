@@ -1,1 +1,11 @@
-<p>pokemon-list works!</p>
+@for (pokemon of pokemons; track $index) {
+<div class="card">
+  <a routerLink="'/pokemon/' + pokemon.id">
+    <div class="card-content">
+      <div class="content">
+        {{ pokemon.name }}
+      </div>
+    </div>
+  </a>
+</div>
+}
