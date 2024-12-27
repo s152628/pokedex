@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { RouterLink } from '@angular/router';
 import { Pokemon } from '../../types';
 import data from '../../pokemon.json';
 
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.css'
 })
