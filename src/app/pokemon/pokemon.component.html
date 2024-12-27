@@ -1,0 +1,19 @@
+@if(selectedPokemon){
+<div>
+  <div class="card">
+    <div class="card-content">
+      <div class="content">
+        <div class="pokeheader">
+          <img [src]="selectedPokemon.sprites.animated" />
+          <div class="pokeid">
+            <b>{{ selectedPokemon.name }}</b>
+            <p>{{ selectedPokemon.id }}</p>
+          </div>
+        </div>
+      </div>
+      <div>Height: {{ selectedPokemon.height }}</div>
+      <div>Weight: {{ selectedPokemon.weight }}</div>
+    </div>
+  </div>
+</div>
+}

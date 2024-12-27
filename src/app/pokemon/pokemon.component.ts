@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute } from '@angular/router';
+import data from '../../pokemon.json';
+import { Pokemon } from '../../types';
 
 @Component({
   selector: 'app-pokemon',
@@ -9,14 +10,21 @@ import { Observable } from 'rxjs';
   templateUrl: './pokemon.component.html',
   styleUrl: './pokemon.component.css'
 })
-export class PokemonComponent {
-  
+export class PokemonComponent implements OnInit {
+
+  pokemon: Pokemon[] = data;
+  selectedPokemon: Pokemon | undefined;
+
   constructor(private route: ActivatedRoute) { }
 
-ngOnInit(): void {
-  this.route.paramMap.subscribe(params => {
-    let id = params.get("id")!;
-  })
-}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      let id = params.get("id")!;
+      this.selectedPokemon = this.pokemon.find(p => p.id === id);
+    })
+  }
 
 }
+
+
+
